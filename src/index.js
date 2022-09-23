@@ -6,12 +6,13 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home";
 import Posts from "./pages/posts";
-import NavBar from "./components/nav-bar";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import store from "./store";
+import { Provider } from "react-redux";
 
 const theme = createTheme({
   pallate: {
-    primary: { main: "" },
+    primary: { main: "black" },
     secondary: {},
   },
 });
@@ -19,16 +20,17 @@ const theme = createTheme({
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ThemeProvider>
-      <NavBar />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<App />}></Route>
-          <Route path="/home" element={<Home />}></Route>
-          <Route path="/posts" element={<Posts />}></Route>
-        </Routes>
-      </BrowserRouter>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<App />}></Route>
+            <Route path="/home" element={<Home />}></Route>
+            <Route path="/posts" element={<Posts />}></Route>
+          </Routes>
+        </BrowserRouter>
+      </ThemeProvider>
+    </Provider>
   </React.StrictMode>
 );
 
