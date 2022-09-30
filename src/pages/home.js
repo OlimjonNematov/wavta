@@ -5,21 +5,26 @@ import ChatBot from "../components/chatbot";
 
 export default function Home() {
   return (
-    <div style={{ padding: "24px" }}>
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center ",
+        flexDirection: "column",
+        // backgroundColor: "black",
+      }}
+    >
       <Box
         sx={{
-          display: "flex",
-          alignItems: "center",
-          flexDirection: "column",
-          color: "primary",
+          backgroundColor: "primary.main",
+          marginBottom: "48px",
         }}
       >
         <NavBar />
       </Box>
-      <Box>
+      <Box sx={{}}>
         <ChatBot />
       </Box>
       {/* <Box>put scroll more here</Box> */}
-    </div>
+    </Box>
   );
 }

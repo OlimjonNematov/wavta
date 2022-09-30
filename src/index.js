@@ -11,9 +11,9 @@ import store from "./store";
 import { Provider } from "react-redux";
 
 const theme = createTheme({
-  pallate: {
-    primary: { main: "black" },
-    secondary: {},
+  palette: {
+    primary: { main: "#376B7E" },
+    secondary: { main: "#5ccc9d" },
   },
 });
 
