@@ -1,10 +1,11 @@
 // in config.js
 import { createChatBotMessage } from "react-chatbot-kit";
+import './Styles.css';
 
-const botName = "Virtual TA";
+const botName = "WAVTA";
 
 const config = {
-  initialMessages: [createChatBotMessage(`Hi! I'm ${botName}`)],
+  initialMessages: [createChatBotMessage(`Hi! It's ${botName}, your Virtual TA!`)],
   botName: botName,
   customStyles: {
     botMessageBox: {
