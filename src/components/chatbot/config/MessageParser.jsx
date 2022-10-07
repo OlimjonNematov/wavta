@@ -10,7 +10,6 @@ const MessageParser = ({ children, actions }) => {
     if (message.toLowerCase().includes("thank you")) {
       actions.handleThankYou();
     }
-
   };
 
   return (
