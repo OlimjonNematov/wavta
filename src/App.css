@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  width: 100% !important;
 }
 
 .App-logo {
@@ -22,10 +23,19 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  width: 100% !important;
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.MuiBox-root css-0 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 @keyframes App-logo-spin {
@@ -35,4 +45,13 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.react-chatbot-kit-chat-container {
+  width: 100% !important;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
