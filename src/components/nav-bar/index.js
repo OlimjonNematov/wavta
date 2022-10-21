@@ -15,21 +15,18 @@ export default function NavBar() {
   return (
     <Box
       sx={{
-        marginBottom: "48px",
-        padding: "48px 48px 18px 48px",
+        padding: "24px 48px 18px 48px",
         width: "auto",
         backgroundColor: "transparent",
         display: "flex",
         justifyContent: "center",
       }}
     >
-      <List>
-        <ListItem>
-          <Typography color="white" variant="h3">
-            Alogrithms Virtual TA
-          </Typography>
-        </ListItem>
+      <Typography color="white" variant="h3">
+        Algorithms Virtual TA
+      </Typography>
 
+      <List>
         <ListItem disablePadding>
           <ListItemButton>
             <ListItemIcon>
