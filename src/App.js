@@ -19,25 +19,12 @@ export default function App() {
     <Box
       sx={{
         display: "flex",
-        // alignItems: "Stretch ",
         flexDirection: "column",
-        // backgroundColor: "black",
       }}
     >
       <NavBar />
 
-      <Button
-        variant="contained"
-        startIcon={<ChatIcon />}
-        onClick={setDialogState}
-        sx={{ width: "100" }}
-      >
-        Chat
-      </Button>
-
-      <Dialog open={dialogOpen} onClose={handleClose}>
-        <ChatBot />
-      </Dialog>
+      <ChatBot />
     </Box>
   );
 }
