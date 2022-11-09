@@ -1,13 +1,28 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.react-chatbot-kit-chat-container {
+  width: 90vh !important;
+  height: 90vh !important;
+  margin: auto !important;
+}
+
+.react-chatbot-kit-chat-inner-container {
+  height: 90vh !important;
+}
+.react-chatbot-kit-chat-bot-message {
+  margin: 0 !important;
+}
+.react-chatbot-kit-chat-message-container {
+  height: 85vh !important;
 }
