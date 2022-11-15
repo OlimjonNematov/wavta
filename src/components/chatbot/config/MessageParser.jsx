@@ -6,16 +6,6 @@ const MessageParser = ({ children, actions }) => {
     // api call, pass response to handleMessage
 
     actions.handleMessage(message);
-
-    if (message.toLowerCase().includes("hello")) {
-      actions.handleHello();
-    }
-    if (message.toLowerCase().includes("hi")) {
-      actions.handleHello();
-    }
-    if (message.toLowerCase().includes("thank you")) {
-      actions.handleThankYou();
-    }
   };
 
   return (

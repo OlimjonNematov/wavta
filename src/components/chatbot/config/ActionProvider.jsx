@@ -25,18 +25,32 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       messages: [...prev.messages, botMessage],
     }));
   };
+
   const handleMessage = async (msg) => {
-    const url = `/api/qna?question=${msg}`;
-    try {
-      const response = await axios.get("http://bit.ly/2mTM3nY");
-      console.log(response.json);
-      const botMessage = createChatBotMessage("response");
-      setState((prev) => ({
-        ...prev,
-        messages: [...prev.messages, botMessage],
-      }));
-    } catch (error) {
-      console.log("failed to get answer");
+    if (msg.includes("hi")) {
+      handleHello();
+    } else if (msg.includes("thank you")) {
+      handleThankYou();
+    } else {
+      const url = `/api/qna?question=${msg}`;
+      try {
+        const response = await axios.get("http://bit.ly/2mTM3nY");
+        console.log(response.json);
+        const botMessage = createChatBotMessage("response");
+        setState((prev) => ({
+          ...prev,
+          messages: [...prev.messages, botMessage],
+        }));
+      } catch (error) {
+        console.log("failed to get answer");
+        const botMessage = createChatBotMessage(
+          "Sorry, I didn't understand.  \n Could you rephrase the question?"
+        );
+        setState((prev) => ({
+          ...prev,
+          messages: [...prev.messages, botMessage],
+        }));
+      }
     }
   };
 
@@ -45,8 +59,6 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       {React.Children.map(children, (child) => {
         return React.cloneElement(child, {
           actions: {
-            handleHello,
-            handleThankYou,
             handleMessage,
           },
         });
