@@ -1,5 +1,9 @@
 // in ActionProvider.jsx
 import React from "react";
+import { useEffect } from "react";
+// import { axios } from "axios";
+
+const axios = require("axios").default;
 
 const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   const handleHello = () => {
@@ -12,15 +16,30 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   };
 
   const handleThankYou = () => {
-    const botMessage = createChatBotMessage("Of course! Is there anything else I can help you with?");
+    const botMessage = createChatBotMessage(
+      "Of course! Is there anything else I can help you with?"
+    );
 
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, botMessage],
     }));
   };
+  const handleMessage = async (msg) => {
+    const url = `/api/qna?question=${msg}`;
+    try {
+      const response = await axios.get("http://bit.ly/2mTM3nY");
+      console.log(response.json);
+      const botMessage = createChatBotMessage("response");
+      setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, botMessage],
+      }));
+    } catch (error) {
+      console.log("failed to get answer");
+    }
+  };
 
-  // Put the handleThankYou function in the actions object to pass to the MessageParser
   return (
     <div>
       {React.Children.map(children, (child) => {
@@ -28,6 +47,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           actions: {
             handleHello,
             handleThankYou,
+            handleMessage,
           },
         });
       })}
