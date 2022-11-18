@@ -19,11 +19,11 @@ export default function NavBar() {
         width: "auto",
         backgroundColor: "transparent",
         display: "flex",
-        justifyContent: "center",
+        justifyContent: "space-between",
       }}
     >
       <Typography color="white" variant="h3">
-        Algorithms Virtual TA
+        Virtual TA
       </Typography>
 
       <List>

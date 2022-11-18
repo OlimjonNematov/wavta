@@ -3,15 +3,9 @@ import React from "react";
 
 const MessageParser = ({ children, actions }) => {
   const parse = (message) => {
-    if (message.toLowerCase().includes("hello")) {
-      actions.handleHello();
-    }
-    if (message.toLowerCase().includes("hi")) {
-      actions.handleHello();
-    }
-    if (message.toLowerCase().includes("thank you")) {
-      actions.handleThankYou();
-    }
+    // api call, pass response to handleMessage
+
+    actions.handleMessage(message);
   };
 
   return (
