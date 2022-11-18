@@ -1,7 +1,9 @@
 // in ActionProvider.jsx
 import React from "react";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 // import { axios } from "axios";
+
+const baseURL = 'http://localhost:8000';
 
 const axios = require("axios").default;
 
@@ -27,16 +29,16 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   };
 
   const handleMessage = async (msg) => {
-    if (msg.includes("hi") || msg.includes("hello")) {
+    if (msg.includes(" hi ") || msg.includes(" hello ")) {
       handleHello();
-    } else if (msg.includes("thank you")) {
+    } else if (msg.includes(" thank you ")) {
       handleThankYou();
     } else {
-      const url = `/api/qna?question=${msg}`;
+      const url = `${baseURL}/api/qna?question=${encodeURIComponent(msg)}/`;
       try {
         const response = await axios.get(url);
-        console.log(response.json);
-        const botMessage = createChatBotMessage("response");
+        // console.log(response.data.answer);
+        const botMessage = createChatBotMessage(response.data?.answer || '');
         setState((prev) => ({
           ...prev,
           messages: [...prev.messages, botMessage],
