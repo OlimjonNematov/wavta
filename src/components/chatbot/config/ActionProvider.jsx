@@ -7,7 +7,7 @@ const axios = require("axios").default;
 
 const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   const handleHello = () => {
-    const botMessage = createChatBotMessage("Hello. Nice to meet you human.");
+    const botMessage = createChatBotMessage("Hello. Nice to meet you!");
 
     setState((prev) => ({
       ...prev,
@@ -27,14 +27,14 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   };
 
   const handleMessage = async (msg) => {
-    if (msg.includes("hi")) {
+    if (msg.includes("hi") || msg.includes("hello")) {
       handleHello();
     } else if (msg.includes("thank you")) {
       handleThankYou();
     } else {
       const url = `/api/qna?question=${msg}`;
       try {
-        const response = await axios.get("http://bit.ly/2mTM3nY");
+        const response = await axios.get(url);
         console.log(response.json);
         const botMessage = createChatBotMessage("response");
         setState((prev) => ({
@@ -42,7 +42,6 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           messages: [...prev.messages, botMessage],
         }));
       } catch (error) {
-        console.log("failed to get answer");
         const botMessage = createChatBotMessage(
           "Sorry, I didn't understand.  \n Could you rephrase the question?"
         );
