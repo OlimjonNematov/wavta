@@ -18,7 +18,7 @@
     "postcss-normalize": "^10.0.1",
     "postcss-preset-env": "^7.8.3",
     "react": "^18.2.0",
-    "react-chatbot-kit": "github:OlimjonNematov/react-chatbot-kit",
+    "react-chatbot-kit": "github:OlimjonNematov/wavta-dep",
     "react-dom": "^18.2.0",
     "react-latex": "^2.0.0",
     "react-redux": "^8.0.4",
