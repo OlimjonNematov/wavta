@@ -3,7 +3,7 @@ import React from "react";
 // import { useEffect } from "react";
 // import { axios } from "axios";
 
-const baseURL = 'http://localhost:8000';
+const baseURL = "http://34.139.84.173";
 
 const axios = require("axios").default;
 
@@ -37,8 +37,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       const url = `${baseURL}/api/qna?question=${encodeURIComponent(msg)}/`;
       try {
         const response = await axios.get(url);
-        // console.log(response.data.answer);
-        const botMessage = createChatBotMessage(response.data?.answer || '');
+        console.log(response.data.answer);
+        const botMessage = createChatBotMessage(response.data?.answer || "");
         setState((prev) => ({
           ...prev,
           messages: [...prev.messages, botMessage],
