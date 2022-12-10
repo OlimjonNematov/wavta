@@ -10,7 +10,7 @@ sudo systemctl stop nginx
 
 # install npm dependencies
 echo "installing npm dependencies"
-npm ci
+npm install
 
 # build webpack
 echo "building webpack"
